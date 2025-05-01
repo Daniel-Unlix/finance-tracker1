@@ -1,0 +1,29 @@
+Week 14: Project Reporting – Personal Finance Tracker
+
+Task 2: Report
+
+1. What hurdles have you faced so far?
+
+Most of the hurdles I encountered were related to file handling, shell script errors, and GitHub integration. A few scripts did not behave as expected when files were missing or when run without proper permissions. I also initially struggled to push my code to GitHub due to changes in authentication methods (GitHub no longer accepts passwords for HTTPS push).
+
+2. How did you solve them?
+
+Below is a breakdown of each issue I faced and how I resolved it:
+
+| Code File               | Issue Faced                                                                 | Solution Implemented                                                                 |
+|------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| add_transaction.sh     | Script crashed because transactions.txt didn't exist                        | Used `touch transactions.txt` before testing                                          |
+| delete_transaction.sh  | `sed -i` failed on macOS when deleting by ID                                | Replaced with `grep -v "^$id,"` and redirected to temp.txt, then renamed              |
+| *.sh scripts           | Got “Permission denied” errors                                               | Used `chmod +x *.sh` to make all scripts executable                                   |
+| Git push               | GitHub wouldn’t accept password for push                                    | Created a Personal Access Token (PAT) and used it instead of a password               |
+| Zip upload             | Files weren’t visible on GitHub when zipped                                 | Unzipped locally and pushed individual source files to repo                           |
+| view_transactions.sh   | Used `less` which didn’t format well in basic terminals                     | Switched to `cat` for cleaner, consistent output                                      |
+| export.sh              | Overwrote previous CSV file silently                                        | Confirmed this is intended behavior and noted it in README                            |
+
+3. What are your next steps?
+
+- Finalize my `README.md` to clearly explain each script’s purpose and include examples.
+- Run a final test using invalid inputs to make sure the scripts handle errors properly.
+- Push all final files (scripts, .txt, .csv, README, and this report) to GitHub.
+- Submit the GitHub link and zip file as my completed Week 14 deliverable.
+
